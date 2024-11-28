@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ news_item.title }}</title>
+    <style>
+        /* Ваші стилі для збереження оформлення */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Гуртожиток</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('index') }}">Головна</a>
+        <a href="{{ url_for('registration') }}">Реєстрація</a>
+        <a href="{{ url_for('management') }}">Дирекція</a>
+        <a href="{{ url_for('chat') }}">Чат</a>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <h2>{{ news_item.title }}</h2>
+            <p>{{ news_item.content }}</p>
+            <a href="{{ url_for('index') }}">Назад до новин</a>
+        </div>
+    </div>
+</body>
+</html>

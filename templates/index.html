@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Головна сторінка</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Стилізація новин */
+        .news {
+            margin-top: 20px;
+        }
+
+        .news-item {
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        .news-item p {
+            display: none;
+            padding-top: 10px;
+        }
+
+        .news-item.active p {
+            display: block;
+        }
+
+        .news-item h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .news-item .details-button {
+            margin-top: 10px;
+            color: #4646b1;
+            cursor: pointer;
+        }
+
+        /* Стилізація для зображення в лівій панелі */
+        .sidebar img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px; /* Округлі краї */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тінь */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Гуртожиток</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('index') }}">Головна</a>
+        <a href="{{ url_for('registration') }}">Реєстрація</a>
+        <a href="{{ url_for('management') }}">Дирекція</a>
+        <a href="{{ url_for('chat') }}">Чат</a>
+        <a href="{{ url_for('questions') }}">Запитання</a>
+        <a href="{{ url_for('students') }}">Пошук студентів</a>
+
+    </nav>
+    <div class="container">
+        <div class="sidebar">
+            <!-- Додаємо зображення -->
+<!--            <img src="{{ url_for('static', filename='images/image.JPEG') }}" alt="Гуртожиток">-->
+            <img src="/static/image/image.JPEG" alt="logo">
+        </div>
+        <div class="content">
+            <h2>Останні новини</h2>
+            <div class="news">
+                <div class="news-item">
+                    <h3>Оголошення про ремонт водопостачання</h3>
+                    <p>З 1 грудня в гуртожитку буде проводитись ремонт водопостачання. Перепрошуємо за тимчасові незручності.</p>
+                    <div class="details-button">Деталі</div>
+                </div>
+                <div class="news-item">
+                    <h3>Зміни в правилах поселення</h3>
+                    <p>З наступного року змінюються правила поселення в гуртожиток. Оновлені вимоги та процедура будуть опубліковані на сайті.</p>
+                    <div class="details-button">Деталі</div>
+                </div>
+                <div class="news-item">
+                    <h3>Вітаємо студентів-першокурсників!</h3>
+                    <p>Ми раді вітати всіх студентів-першокурсників! Бажаємо успіхів у навчанні та проживанні в гуртожитку.</p>
+                    <div class="details-button">Деталі</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Додавання функціональності для розкриття новин
+        const newsItems = document.querySelectorAll('.news-item');
+
+        newsItems.forEach(item => {
+            const button = item.querySelector('.details-button');
+            button.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

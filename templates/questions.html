@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запитання</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Надіслати запитання</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('index') }}">Головна</a>
+        <a href="{{ url_for('registration') }}">Реєстрація</a>
+        <a href="{{ url_for('management') }}">Дирекція</a>
+        <a href="{{ url_for('chat') }}">Чат</a>
+        <a href="{{ url_for('questions') }}">Запитання</a>
+        <a href="{{ url_for('students') }}">Пошук студентів</a>
+
+    </nav>
+    <div class="container">
+        <h2>Запитайте у нас!</h2>
+        <form method="POST" action="{{ url_for('questions') }}">
+            {{ question_form.hidden_tag() }}
+            <div>
+                {{ question_form.name.label }}:
+                {{ question_form.name(size=32) }}
+            </div>
+            <div>
+                {{ question_form.email.label }}:
+                {{ question_form.email(size=32) }}
+            </div>
+            <div>
+                {{ question_form.message.label }}:
+                {{ question_form.message(rows=4, cols=40) }}
+            </div>
+            <div>
+                {{ question_form.submit() }}
+            </div>
+        </form>
+        <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

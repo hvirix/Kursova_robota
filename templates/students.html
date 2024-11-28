@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Пошук студентів{% endblock %}
+
+{% block content %}
+<h2>Пошук студентів</h2>
+<form method="POST">
+    {{ search_form.hidden_tag() }}
+    <label for="query">Введіть ПІБ:</label>
+    {{ search_form.query(class_="form-control") }}
+    {{ search_form.submit(class_="btn btn-primary") }}
+</form>
+
+{% if students%}
+    <h3>Результати пошуку:</h3>
+    <ul>
+        {% for student in students %}
+        <li>
+            <strong>ПІБ:</strong> {{ student.full_name }}<br>
+            <strong>Факультет:</strong> {{ student.faculty }}<br>
+            <strong>Курс:</strong> {{ student.course }}<br>
+            <strong>Кімната:</strong> {{ student.room_number }}<br>
+            <strong>Поверх:</strong> {{ student.floor }}<br>
+            <strong>Телефон:</strong> {{ student.phone_number }}
+        </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}
