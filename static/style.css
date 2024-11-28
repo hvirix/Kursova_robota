@@ -1,0 +1,140 @@
+/* Основний стиль сторінки */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+/* Заголовок */
+header {
+    background-color: rgb(47, 68, 87);
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+/* Навігація */
+nav {
+    background-color: #e3d502;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Головний контейнер */
+.container {
+    display: flex;
+    margin: 20px 0;
+    gap: 20px;
+}
+
+/* Ліва панель */
+.sidebar {
+    flex: 1;
+    padding: 10px 5px; /* Зменшуємо відступи */
+    border-right: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-left: 10px; /* Зміщуємо панель ближче до лівого краю */
+}
+
+/* Контент новин */
+.content {
+    flex: 3;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* Секція форми */
+.form-section {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Вирівнювання елементів форми */
+input[type="text"], textarea, button {
+    width: 100%; /* Забезпечуємо, щоб елементи не виходили за межі */
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Враховує відступи та межі у розмірі елемента */
+}
+
+/* Кнопка */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Flash-повідомлення */
+.alert {
+    padding: 10px;
+    background-color: #00f60c;
+    color: white;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+/* Список новин */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #f9f9f9;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Стиль для новин */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+ul li a:hover {
+    color: #4646b1;
+    text-decoration: underline;
+}
+
